@@ -27,7 +27,7 @@
             <h3>🌧 Rainy Mood</h3>
             <p>A heavy thunderstorm to wash away the stress.</p>
             <audio id="rain-audio" loop>
-                <source src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Thunder_And_Rain_Sounds_-_Splice_Sound_Effect.ogg" type="audio/ogg">
+                <source src="rain.mp3" type="audio/mpeg">
             </audio>
             <button class="btn sound-btn" onclick="toggleSound('rain-audio', this)">▶ Play Vibe</button>
         </div>
@@ -36,16 +36,16 @@
             <h3>☕ Lo-Fi / Soft Piano</h3>
             <p>Gentle melody to reset your brain.</p>
             <audio id="lofi-audio" loop>
-                <source src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Gymnop%C3%A9die_No._1.ogg" type="audio/ogg">
+                <source src="lofi.mp3" type="audio/mpeg">
             </audio>
             <button class="btn sound-btn" onclick="toggleSound('lofi-audio', this)">▶ Play Vibe</button>
         </div>
         
         <div class="card">
-            <h3>📺 White Noise</h3>
+            <h3>📺 Brown Noise</h3>
             <p>Static sound to block out intrusive thoughts.</p>
             <audio id="noise-audio" loop>
-                <source src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Pink_noise.ogg" type="audio/ogg">
+                <source src="noise.mp3" type="audio/mpeg">
             </audio>
             <button class="btn sound-btn" onclick="toggleSound('noise-audio', this)">▶ Play Vibe</button>
         </div>
@@ -59,33 +59,38 @@
         // Inline script override for the sounds page logic specifically
         function toggleSound(soundId, btn) {
             const audio = document.getElementById(soundId);
+            
+            // If the audio is currently paused, we want to play it
             if (audio.paused) {
-                // Pause all other audios first (Exclusive Play)
+                // 1. Pause all other audios first (Exclusive Play)
                 document.querySelectorAll('audio').forEach(a => {
                     a.pause(); 
-                    a.currentTime = 0;
+                    a.currentTime = 0; // Reset them to start
                 });
+
+                // 2. Reset all buttons to "Play" state
                 document.querySelectorAll('.sound-btn').forEach(b => {
                     b.innerText = "▶ Play Vibe";
                     b.classList.remove('dancing-btn');
                     b.style.borderColor = "var(--accent-color)";
                 });
 
+                // 3. Play the chosen audio
                 audio.play();
+                
+                // 4. Update THIS button to "Pause" state
                 btn.innerText = "⏸ Pause Vibe";
                 btn.classList.add('dancing-btn'); // Add dancing animation
                 btn.style.borderColor = "var(--hot-pink)";
+            
             } else {
+                // If it was already playing, just pause it
                 audio.pause();
                 btn.innerText = "▶ Play Vibe";
                 btn.classList.remove('dancing-btn'); // Stop dancing
                 btn.style.borderColor = "var(--accent-color)";
             }
         }
-        
-        // Import other scripts
-        // Note: The main script.js will handle the header/footer logic, 
-        // but the function above overrides the sound logic for this page.
     </script>
     <script src="script.js"></script>
 </body>
