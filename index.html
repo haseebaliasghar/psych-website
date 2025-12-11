@@ -3,56 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindful Space - Home</title>
+    <title>Kuromi Crisis Kit 💀</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
-        <div class="logo">Mindful Space 🌿</div>
+        <div class="logo" onclick="triggerEasterEgg()">Crisis Kit 💀</div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="mindfulness.html">Mindfulness</a></li>
-            <li><a href="psychology.html">Psychology 101</a></li>
-            <li><a href="tips.html">Tips</a></li>
-            <li><a href="therapy.html">Therapy</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" class="active">Breathe</a></li>
+            <li><a href="grounding.html">Grounding</a></li>
+            <li><a href="sounds.html">Sounds</a></li>
+            <li><a href="void.html">The Void</a></li>
+            <li><a href="sos.html">SOS</a></li>
         </ul>
     </nav>
 
-    <header style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
-        <div class="header-content">
-            <h1>Your Mental Health Matters</h1>
-            <p>A safe space for students to find balance, peace, and focus.</p>
-            <a href="tips.html" class="btn">Explore Tips</a>
-        </div>
-    </header>
+    <div class="container">
+        <h1>Inhale the Chaos. Exhale the Drama.</h1>
+        <p>Sync your breath with the skull. 4 seconds in. 4 seconds out.</p>
+        
+        <div class="breathing-circle"></div>
+        
+        <p style="color: #666; font-size: 0.9rem;">(Watch the glow. Breathe with it.)</p>
+        
+        <button id="openGuideBtn" class="btn" style="font-size: 0.8rem; margin-top: 50px;">? How to use this site</button>
+    </div>
 
-    <section class="quote-section">
-        <h2>💡 Daily Inspiration</h2>
-        <div id="quote-box">
-            <p id="quote-text">"Peace comes from within. Do not seek it without."</p>
-            <button onclick="newQuote()" class="btn-small">New Quote</button>
+    <div id="guideModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>💀 Welcome to the Crisis Kit</h2>
+            <p>Panic attacks suck. This site is your digital toolkit.</p>
+            <ul style="text-align: left; margin: 20px; list-style: none;">
+                <li>🌬 <strong>Breathe:</strong> Use the skull to regulate your heart rate.</li>
+                <li>🌍 <strong>Grounding:</strong> Use the "5-4-3-2-1" game to stop dissociation.</li>
+                <li>🔥 <strong>The Void:</strong> Type your angry thoughts and watch them burn.</li>
+                <li>🔊 <strong>Sounds:</strong> Block out the noise with rain or lo-fi.</li>
+            </ul>
+            <p style="color: var(--hot-pink);">You are safe here.</p>
         </div>
-    </section>
+    </div>
 
     <footer>
-        <p>Created by Group A | Psychology Dept Project</p>
+        <p id="streak-display">🔥 Survival Streak: Loading...</p>
+        <p>Created by Group A (Psychology Dept)</p>
     </footer>
 
-    <script>
-        const quotes = [
-            "You don’t have to control your thoughts. You just have to stop letting them control you.",
-            "This too shall pass.",
-            "Your mental health is a priority. Your happiness is an essential.",
-            "Breathe. It’s just a bad day, not a bad life.",
-            "You are stronger than you think."
-        ];
-        function newQuote() {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            document.getElementById('quote-text').innerText = `"${quotes[randomIndex]}"`;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
