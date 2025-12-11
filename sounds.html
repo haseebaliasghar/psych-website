@@ -25,35 +25,68 @@
 
         <div class="card">
             <h3>🌧 Rainy Mood</h3>
-            <p>For when you want to feel like a main character in a sad movie.</p>
+            <p>A heavy thunderstorm to wash away the stress.</p>
             <audio id="rain-audio" loop>
-                <source src="https://cdn.pixabay.com/download/audio/2022/07/04/audio_3cb7c77244.mp3" type="audio/mpeg">
+                <source src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Thunder_And_Rain_Sounds_-_Splice_Sound_Effect.ogg" type="audio/ogg">
             </audio>
-            <button class="btn" onclick="toggleSound('rain-audio', this)">▶ Play Vibe</button>
+            <button class="btn sound-btn" onclick="toggleSound('rain-audio', this)">▶ Play Vibe</button>
         </div>
 
         <div class="card">
-            <h3>☕ Lo-Fi Beats</h3>
-            <p>Chill beats to stop the panic spiral.</p>
+            <h3>☕ Lo-Fi / Soft Piano</h3>
+            <p>Gentle melody to reset your brain.</p>
             <audio id="lofi-audio" loop>
-                <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+                <source src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Gymnop%C3%A9die_No._1.ogg" type="audio/ogg">
             </audio>
-            <button class="btn" onclick="toggleSound('lofi-audio', this)">▶ Play Vibe</button>
+            <button class="btn sound-btn" onclick="toggleSound('lofi-audio', this)">▶ Play Vibe</button>
         </div>
         
         <div class="card">
-            <h3>📺 Brown Noise</h3>
-            <p>Brain massage. Good for ADHD paralysis.</p>
+            <h3>📺 White Noise</h3>
+            <p>Static sound to block out intrusive thoughts.</p>
             <audio id="noise-audio" loop>
-                <source src="https://cdn.pixabay.com/download/audio/2021/08/09/audio_8fa5025754.mp3" type="audio/mpeg">
+                <source src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Pink_noise.ogg" type="audio/ogg">
             </audio>
-            <button class="btn" onclick="toggleSound('noise-audio', this)">▶ Play Vibe</button>
+            <button class="btn sound-btn" onclick="toggleSound('noise-audio', this)">▶ Play Vibe</button>
         </div>
     </div>
 
     <footer>
         <p id="streak-display">🔥 Survival Streak: Loading...</p>
     </footer>
+    
+    <script>
+        // Inline script override for the sounds page logic specifically
+        function toggleSound(soundId, btn) {
+            const audio = document.getElementById(soundId);
+            if (audio.paused) {
+                // Pause all other audios first (Exclusive Play)
+                document.querySelectorAll('audio').forEach(a => {
+                    a.pause(); 
+                    a.currentTime = 0;
+                });
+                document.querySelectorAll('.sound-btn').forEach(b => {
+                    b.innerText = "▶ Play Vibe";
+                    b.classList.remove('dancing-btn');
+                    b.style.borderColor = "var(--accent-color)";
+                });
+
+                audio.play();
+                btn.innerText = "⏸ Pause Vibe";
+                btn.classList.add('dancing-btn'); // Add dancing animation
+                btn.style.borderColor = "var(--hot-pink)";
+            } else {
+                audio.pause();
+                btn.innerText = "▶ Play Vibe";
+                btn.classList.remove('dancing-btn'); // Stop dancing
+                btn.style.borderColor = "var(--accent-color)";
+            }
+        }
+        
+        // Import other scripts
+        // Note: The main script.js will handle the header/footer logic, 
+        // but the function above overrides the sound logic for this page.
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
