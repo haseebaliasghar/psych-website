@@ -264,3 +264,28 @@ footer {
     nav { flex-direction: column; gap: 15px; }
     .nav-links { flex-direction: column; text-align: center; padding: 0; }
 }
+
+/* --- MASCOT ANIMATION --- */
+.mascot {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    width: 150px; /* Adjust this number if the gif is too big/small */
+    height: auto;
+    z-index: 50;
+    filter: drop-shadow(0 0 10px rgba(224, 170, 255, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.mascot:hover {
+    transform: translateY(-10px) rotate(5deg);
+}
+
+/* Hide on small phones so it doesn't cover buttons */
+@media (max-width: 600px) {
+    .mascot {
+        width: 100px;
+        right: 10px;
+        opacity: 0.8;
+    }
+}
