@@ -1,34 +1,33 @@
-/* --- style.css --- */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap');
+/* --- style.css (FIXED VERSION) --- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-    --bg-color: #1a051a; /* Deep Purple/Black */
-    --text-color: #f3e5f5; /* Lavender White */
-    --accent-color: #e0aaff; /* Lilac */
-    --hot-pink: #ff007f; /* Kuromi Pink */
-    --card-bg: #2d1b2e; /* Slightly lighter purple for cards */
+    --bg-color: #1a051a; 
+    --text-color: #f3e5f5; 
+    --accent-color: #e0aaff; 
+    --hot-pink: #ff007f; 
+    --card-bg: #2d1b2e; 
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: crosshair; /* Fallback cursor */
+    /* Removed custom cursor for better usability */
 }
 
-/* Custom Heart Cursor */
+/* New Font: Nunito (Rounded but readable) */
+h1, h2, h3, .btn, .logo {
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.5px;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    /* Custom Cursor Image (32x32 transparent PNG recommended) */
-    cursor: url('https://cur.cursors-4u.net/symbols/sym-1/sym49.cur'), auto; 
-}
-
-h1, h2, h3 {
-    font-family: 'Fredoka One', cursive;
-    letter-spacing: 1px;
+    line-height: 1.6;
 }
 
 /* --- NAVIGATION --- */
@@ -37,9 +36,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(26, 5, 26, 0.9); /* Darker background */
     border-bottom: 3px solid var(--accent-color);
-    backdrop-filter: blur(5px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -47,9 +45,9 @@ nav {
 
 .logo {
     font-size: 1.5rem;
+    font-weight: 900;
     color: var(--hot-pink);
-    text-shadow: 2px 2px 0px #000;
-    cursor: pointer; /* For the Easter Egg */
+    cursor: pointer; 
 }
 
 .nav-links {
@@ -67,13 +65,12 @@ nav {
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--hot-pink);
-    text-shadow: 0 0 10px var(--hot-pink);
 }
 
 /* --- LAYOUTS --- */
 .container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 30px auto;
     text-align: center;
     padding: 20px;
 }
@@ -84,11 +81,12 @@ nav {
     border: 2px solid var(--accent-color);
     padding: 12px 30px;
     border-radius: 50px;
-    font-family: 'Fredoka One', cursive;
     font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
     margin-top: 20px;
+    display: inline-block; /* Fixes overlapping issues */
     box-shadow: 4px 4px 0px var(--accent-color);
 }
 
@@ -102,28 +100,40 @@ nav {
 .btn-danger {
     border-color: var(--hot-pink);
     color: var(--hot-pink);
-    box-shadow: 4px 4px 0px var(--hot-pink);
 }
 
 /* --- COMPONENTS --- */
 
-/* 1. Breathing Skull Animation */
+/* 1. CSS-Only Breathing Orb (No Image Required) */
 .breathing-circle {
-    width: 250px;
-    height: 250px;
-    margin: 50px auto;
-    background: url('https://img.icons8.com/ios-filled/250/e0aaff/skull.png') no-repeat center;
-    background-size: contain;
+    width: 200px;
+    height: 200px;
+    margin: 60px auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color);
     animation: breathe 8s infinite ease-in-out;
-    filter: drop-shadow(0 0 10px var(--accent-color));
+    position: relative;
+}
+
+/* Inner "Skull" detail (abstract) */
+.breathing-circle::after {
+    content: '💀';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    opacity: 0.8;
 }
 
 @keyframes breathe {
-    0%, 100% { transform: scale(1); opacity: 0.6; filter: drop-shadow(0 0 5px var(--accent-color)); }
-    50% { transform: scale(1.3); opacity: 1; filter: drop-shadow(0 0 30px var(--hot-pink)); }
+    0%, 100% { transform: scale(1); opacity: 0.6; box-shadow: 0 0 20px var(--accent-color); }
+    50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 60px var(--hot-pink); }
 }
 
-/* 2. Kuromi Tail Progress Bar */
+/* 2. Progress Bar */
 .progress-container {
     width: 100%;
     background-color: #000;
@@ -137,13 +147,7 @@ nav {
 .progress-bar {
     height: 100%;
     width: 0%;
-    background: repeating-linear-gradient(
-        45deg,
-        var(--hot-pink),
-        var(--hot-pink) 10px,
-        var(--accent-color) 10px,
-        var(--accent-color) 20px
-    );
+    background: var(--hot-pink);
     transition: width 0.5s ease;
 }
 
@@ -155,6 +159,21 @@ nav {
     border: 2px solid var(--accent-color);
     margin: 20px 0;
     box-shadow: 5px 5px 0px #000;
+    display: flex; /* Flexbox helps layout content better */
+    flex-direction: column;
+    align-items: center; /* Center content in card */
+}
+
+/* Special styling for SOS text bubbles */
+.sos-text {
+    background: #1a051a; 
+    padding: 15px; 
+    border-radius: 10px; 
+    color: #ccc;
+    font-style: italic;
+    width: 100%; /* Force full width */
+    margin-bottom: 15px;
+    border-left: 4px solid var(--hot-pink);
 }
 
 input, textarea {
@@ -169,7 +188,17 @@ input, textarea {
     font-size: 1rem;
 }
 
-/* 4. The Void Animation */
+/* 4. Dancing Button Animation (For Sounds) */
+.dancing-btn {
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+
+/* 5. The Void Animation */
 .shake-burn {
     animation: shake 0.5s;
     transition: opacity 1s, filter 1s;
@@ -177,42 +206,35 @@ input, textarea {
 
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
     20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
     40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
     60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
     80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-/* 5. Modal (How To Use) */
+/* 6. Modal */
 .modal {
     display: none; 
     position: fixed; 
-    z-index: 999; 
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
     background-color: rgba(0,0,0,0.8); 
     backdrop-filter: blur(5px);
+    z-index: 1000;
 }
 
 .modal-content {
     background-color: var(--bg-color);
-    margin: 15% auto; 
+    margin: 10% auto; 
     padding: 30px;
     border: 3px solid var(--hot-pink);
-    width: 80%; 
+    width: 90%; 
     max-width: 500px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 30px var(--hot-pink);
-    position: relative;
 }
 
 .close-modal {
@@ -223,11 +245,7 @@ input, textarea {
     cursor: pointer;
 }
 
-.close-modal:hover {
-    color: var(--hot-pink);
-}
-
-/* Footer & Streak */
+/* Footer */
 footer {
     text-align: center;
     padding: 30px;
@@ -238,12 +256,11 @@ footer {
 
 #streak-display {
     color: var(--hot-pink);
-    font-weight: bold;
-    font-family: 'Fredoka One', cursive;
+    font-weight: 700;
 }
 
 /* Mobile Fix */
 @media (max-width: 768px) {
     nav { flex-direction: column; gap: 15px; }
-    .nav-links { flex-direction: column; text-align: center; }
+    .nav-links { flex-direction: column; text-align: center; padding: 0; }
 }
