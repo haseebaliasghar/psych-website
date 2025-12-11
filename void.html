@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void 🌑</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="triggerEasterEgg()">Crisis Kit 💀</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Breathe</a></li>
+            <li><a href="grounding.html">Grounding</a></li>
+            <li><a href="sounds.html">Sounds</a></li>
+            <li><a href="void.html" class="active">The Void</a></li>
+            <li><a href="sos.html">SOS</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Scream into the Void</h2>
+        <p>Type the thoughts that are hurting you. We will burn them together.</p>
+
+        <div class="card">
+            <textarea id="void-input" rows="8" placeholder="I am angry because..."></textarea>
+            <br>
+            <button id="burn-btn" class="btn btn-danger" onclick="burnText()">🔥 BURN IT ALL 🔥</button>
+        </div>
+        
+        <p style="font-size: 0.8rem; color: #666;">*Nothing you type here is saved. It is deleted forever.</p>
+    </div>
+
+    <footer>
+        <p id="streak-display">🔥 Survival Streak: Loading...</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
