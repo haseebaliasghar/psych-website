@@ -126,7 +126,16 @@ function triggerEasterEgg() {
     logoClicks++;
     if (logoClicks === 5) {
         alert("🎉 KUROMI PARTY MODE ACTIVATED! 🎉");
+        
+        // 1. Set the image
         document.body.style.backgroundImage = "url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG1pN2I3MWFzam5ib3d2bXpmNnJpdXVkenFncHM2Zm9xYmp3YmM0YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eHdZZgmLheaqRT6kVX/giphy.gif')";
+        
+        // 2. Fix the layout (Stretch to fit, don't repeat)
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundPosition = "center";
+        
+        // Reset clicks
         logoClicks = 0;
     }
 }
