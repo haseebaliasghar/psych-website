@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grounding 🌍</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="triggerEasterEgg()">Crisis Kit 💀</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Breathe</a></li>
+            <li><a href="grounding.html" class="active">Grounding</a></li>
+            <li><a href="sounds.html">Sounds</a></li>
+            <li><a href="void.html">The Void</a></li>
+            <li><a href="sos.html">SOS</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Reality Check (5-4-3-2-1)</h2>
+        <p>Get out of your head. Come back to Earth.</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div id="step-1" class="card">
+            <h3>👀 Look Around.</h3>
+            <p>Type <strong>5 things</strong> you can see right now.</p>
+            <input type="text" placeholder="1. e.g., My shoes...">
+            <input type="text" placeholder="2.">
+            <input type="text" placeholder="3.">
+            <input type="text" placeholder="4.">
+            <input type="text" placeholder="5.">
+            <button class="btn" onclick="nextStep(5)">Next Step ➜</button>
+        </div>
+
+        <div id="step-2" class="card" style="display:none;">
+            <h3>✋ Touch Check.</h3>
+            <p>Type <strong>4 things</strong> you can physically feel.</p>
+            <input type="text" placeholder="1. e.g., The fabric of my chair...">
+            <input type="text" placeholder="2.">
+            <input type="text" placeholder="3.">
+            <input type="text" placeholder="4.">
+            <button class="btn" onclick="nextStep(5)">Next Step ➜</button>
+        </div>
+        
+        <div id="step-3" class="card" style="display:none;">
+            <h3>👂 Listen up.</h3>
+            <p>Type <strong>3 things</strong> you can hear.</p>
+            <input type="text" placeholder="1.">
+            <input type="text" placeholder="2.">
+            <input type="text" placeholder="3.">
+            <button class="btn" onclick="nextStep(5)">Next Step ➜</button>
+        </div>
+
+        <div id="step-4" class="card" style="display:none;">
+            <h3>👃 Smell check.</h3>
+            <p>Type <strong>2 things</strong> you can smell (or like the smell of).</p>
+            <input type="text" placeholder="1.">
+            <input type="text" placeholder="2.">
+            <button class="btn" onclick="nextStep(5)">Next Step ➜</button>
+        </div>
+
+        <div id="step-5" class="card" style="display:none;">
+            <h3>👅 Taste.</h3>
+            <p>Type <strong>1 thing</strong> you can taste right now.</p>
+            <input type="text" placeholder="1.">
+            <button class="btn" onclick="nextStep(5)">Finish</button>
+        </div>
+
+        <div id="step-finish" class="card" style="display:none; text-align: center;">
+            <h1 style="font-size: 3rem;">💀💜</h1>
+            <h3>You did it.</h3>
+            <p>You are grounded. You are safe. You are a badass.</p>
+            <a href="index.html" class="btn">Go Back Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p id="streak-display">🔥 Survival Streak: Loading...</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
