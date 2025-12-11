@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sounds 🔊</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="triggerEasterEgg()">Crisis Kit 💀</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Breathe</a></li>
+            <li><a href="grounding.html">Grounding</a></li>
+            <li><a href="sounds.html" class="active">Sounds</a></li>
+            <li><a href="void.html">The Void</a></li>
+            <li><a href="sos.html">SOS</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Sensory Blockers</h2>
+        <p>The world is too loud. Drown it out.</p>
+
+        <div class="card">
+            <h3>🌧 Rainy Mood</h3>
+            <p>For when you want to feel like a main character in a sad movie.</p>
+            <audio id="rain-audio" loop>
+                <source src="https://cdn.pixabay.com/download/audio/2022/07/04/audio_3cb7c77244.mp3" type="audio/mpeg">
+            </audio>
+            <button class="btn" onclick="toggleSound('rain-audio', this)">▶ Play Vibe</button>
+        </div>
+
+        <div class="card">
+            <h3>☕ Lo-Fi Beats</h3>
+            <p>Chill beats to stop the panic spiral.</p>
+            <audio id="lofi-audio" loop>
+                <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+            </audio>
+            <button class="btn" onclick="toggleSound('lofi-audio', this)">▶ Play Vibe</button>
+        </div>
+        
+        <div class="card">
+            <h3>📺 Brown Noise</h3>
+            <p>Brain massage. Good for ADHD paralysis.</p>
+            <audio id="noise-audio" loop>
+                <source src="https://cdn.pixabay.com/download/audio/2021/08/09/audio_8fa5025754.mp3" type="audio/mpeg">
+            </audio>
+            <button class="btn" onclick="toggleSound('noise-audio', this)">▶ Play Vibe</button>
+        </div>
+    </div>
+
+    <footer>
+        <p id="streak-display">🔥 Survival Streak: Loading...</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
