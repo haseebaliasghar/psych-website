@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Space - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Mindful Space 🌿</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="mindfulness.html">Mindfulness</a></li>
+            <li><a href="psychology.html">Psychology 101</a></li>
+            <li><a href="tips.html">Tips</a></li>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+        <div class="header-content">
+            <h1>Your Mental Health Matters</h1>
+            <p>A safe space for students to find balance, peace, and focus.</p>
+            <a href="tips.html" class="btn">Explore Tips</a>
+        </div>
+    </header>
+
+    <section class="quote-section">
+        <h2>💡 Daily Inspiration</h2>
+        <div id="quote-box">
+            <p id="quote-text">"Peace comes from within. Do not seek it without."</p>
+            <button onclick="newQuote()" class="btn-small">New Quote</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created by Group A | Psychology Dept Project</p>
+    </footer>
+
+    <script>
+        const quotes = [
+            "You don’t have to control your thoughts. You just have to stop letting them control you.",
+            "This too shall pass.",
+            "Your mental health is a priority. Your happiness is an essential.",
+            "Breathe. It’s just a bad day, not a bad life.",
+            "You are stronger than you think."
+        ];
+        function newQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-text').innerText = `"${quotes[randomIndex]}"`;
+        }
+    </script>
+</body>
+</html>
